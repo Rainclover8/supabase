@@ -8,8 +8,8 @@ function App() {
   );
   const [todos, setTodos] = useState([]);
   const [text, setText] = useState("");
-  async function getTodo(e) {
-    e.preventDefault();
+  async function getTodo() {
+
     const { data } = await supabase.from("model").select("*");
     setTodos(data);
   }
@@ -17,7 +17,8 @@ function App() {
 
     setText(e.target.value);
   };
-  async function addTodo() {
+  async function addTodo(e) {
+    e.preventDefault()
     await supabase.from("model").insert({ title: text });
     getTodo();
   }
