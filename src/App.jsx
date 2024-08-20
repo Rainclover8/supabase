@@ -9,7 +9,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [text, setText] = useState("");
   async function getTodo(e) {
-    e.preventDefault()
+    e.preventDefault();
     const { data } = await supabase.from("model").select("*");
     setTodos(data);
   }
