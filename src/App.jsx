@@ -19,7 +19,9 @@ function App() {
   };
   async function addTodo(e) {
     e.preventDefault()
-    await supabase.from("model").insert({ title: text });
+
+    await supabase.from("model").insert({ title: text }); 
+    setText('');
     getTodo();
   }
   async function deleteTodo(id) {
@@ -33,7 +35,7 @@ function App() {
     <div>
       <h1>YAPILACAKLAR</h1>
       <form action="">
-        <input type="text" name="" id="" onChange={inputHandler} />
+        <input type="text" name="" id="" value={text} onChange={inputHandler} />
         {text && <button onClick={addTodo}>Ekle</button>}
       </form>
 
